@@ -1,0 +1,42 @@
+<div class="card text-white bg-secondary mb-3" >
+  <div class="card-header">Encargados</div>
+  <div class="card-body ">
+    <h5 class="card-title">Listado de Encargados</h5>
+
+    <div class="my-2 text-left">
+        <button class= "btn btn-rounded btn-primary" type="button" [routerLink] = "['/encargados/form']">Crear Encargado</button>
+    </div>
+  <table class="table table-bordered table-striped">
+
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>apellidos</th>
+        <th>email</th>
+        <th>fecha</th>
+        <th>EditaR</th>   
+        <th>EliminaR</th>    
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let encargado of encargados">
+        <td>{{encargado.id}}</td>
+        <td>{{encargado.nombre}}</td>
+        <td>{{encargado.apellido}}</td>
+        <td>{{encargado.email}}</td>
+        <td>{{encargado.createAt}}</td>
+        <td>
+          <button type="button" name= "editar" [routerLink]="['/encargados/form', encargado.id]" class="btn btn-primary btn-sm">EditaR</button>
+      </td>
+      <td>
+        <button type="button" name= "eliminar" (click)='delete(encargado)' class="btn btn-danger btn-sm">EliminaR</button>
+    </td>
+    
+      </tr>
+    </tbody>
+  </table>
+  
+  </div>
+</div> 
